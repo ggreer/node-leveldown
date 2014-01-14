@@ -115,6 +115,8 @@ void Database::ReleaseIterator (uint32_t id) {
 }
 
 void Database::CloseDatabase () {
+  delete db;
+  db = NULL;
   if (openOptions->block_cache) {
     delete openOptions->block_cache;
     openOptions->block_cache = NULL;
@@ -123,8 +125,6 @@ void Database::CloseDatabase () {
     delete openOptions->filter_policy;
     openOptions->filter_policy = NULL;
   }
-  delete db;
-  db = NULL;
 }
 
 /* V8 exposed functions *****************************/
