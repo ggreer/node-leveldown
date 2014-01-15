@@ -125,6 +125,7 @@ void Database::CloseDatabase () {
     delete openOptions->filter_policy;
     openOptions->filter_policy = NULL;
   }
+  delete openOptions;
 }
 
 /* V8 exposed functions *****************************/
